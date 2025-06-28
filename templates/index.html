@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TM3 Global Sovereign Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.x/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold mb-4">🔥 TM3 Flame Sovereign Portal</h1>
+    <p>Live Modules:</p>
+    <ul class="list-disc ml-6">
+      <li>FlameCert™ — Identity + Payment Verification Module</li>
+      <li>Sekhara AI — Live threat detection + truth grid overlay</li>
+      <li>Crown Metrics — Visual sync of capacity, scrolls, DNA flame loads</li>
+      <li>ZLA Audit Sync — Real-time sovereign oversight</li>
+    </ul>
+    <div class="mt-6">
+      <h2 class="text-2xl">Status Checker</h2>
+      <button id="status-btn" class="mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded">
+        Check Health
+      </button>
+      <p id="status" class="mt-2"></p>
+    </div>
+  </div>
+  <script>
+    document.getElementById("status-btn").onclick = async () => {
+      try {
+        const res = await fetch("/healthz");
+        document.getElementById("status").textContent = res.ok ? "🟢 OK" : "🔴 Down";
+      } catch (e) {
+        document.getElementById("status").textContent = "🔴 Error";
+      }
+    }
+  </script>
+</body>
+</html>
