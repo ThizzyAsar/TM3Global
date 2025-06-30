@@ -17,7 +17,7 @@ def infer(prompt, model="gpt-4"):
         "Content-Type": "application/json",
     }
     data = {"model": model, "prompt": prompt}
-    response = requests.post(GENAI_API_URL, headers=headers, json=data)
+    response = requests.post(GENAI_API_URL, headers=headers, json=data, timeout=30)
     return response.json()
 
 
